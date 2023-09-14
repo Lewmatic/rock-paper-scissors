@@ -11,21 +11,53 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-function playerSelection() {
-  userInput = prompt('Enter "rock", "paper", or "scissors": ');
-  userInput = userInput.replace(/\s/g, "");
-  userInput = userInput.toLowerCase();
+function getPlayerChoice() {
+  let playerChoice = prompt('Enter "rock", "paper", or "scissors": ');
+  playerChoice = playerChoice.replace(/\s/g, "");
+  playerChoice = playerChoice.toLowerCase();
 
   while (
-    userInput != "rock" &&
-    userInput != "paper" &&
-    userInput != "scissors"
+    playerChoice != "rock" &&
+    playerChoice != "paper" &&
+    playerChoice != "scissors"
   ) {
-    userInput = prompt(
+    playerChoice = prompt(
       'Invalid selection. Please enter either "rock", "paper", or "scissors": '
     );
-    userInput = userInput.replace(/\s/g, "");
-    userInput = userInput.toLowerCase();
+    playerChoice = playerChoice.replace(/\s/g, "");
+    playerChoice = playerChoice.toLowerCase();
   }
-  return playerSelection;
+  return playerChoice;
+}
+
+function playRound(playerChoice, computerChoice) {
+  if (playerChoice == computerChoice) {
+    console.log(
+      `You chose ${playerChoice}\nComputer chose ${computerChoice}\nYou Tied`
+    );
+  } else if (playerChoice == "rock" && computerChoice == "scissors") {
+    console.log(
+      `You chose ${playerChoice}\nComputer chose ${computerChoice}\nYou Win`
+    );
+  } else if (playerChoice == "scissors" && computerChoice == "rock") {
+    console.log(
+      `You chose ${playerChoice}\nComputer chose ${computerChoice}\nYou Lose`
+    );
+  } else if (playerChoice == "paper" && computerChoice == "rock") {
+    console.log(
+      `You chose ${playerChoice}\nComputer chose ${computerChoice}\nYou Win`
+    );
+  } else if (playerChoice == "rock" && computerChoice == "paper") {
+    console.log(
+      `You chose ${playerChoice}\nComputer chose ${computerChoice}\nYou Lose`
+    );
+  } else if (playerChoice == "scissors" && computerChoice == "paper") {
+    console.log(
+      `You chose ${playerChoice}\nComputer chose ${computerChoice}\nYou Win`
+    );
+  } else if (playerChoice == "paper" && computerChoice == "scissors") {
+    console.log(
+      `You chose ${playerChoice}\nComputer chose ${computerChoice}\nYou Lose`
+    );
+  }
 }
