@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#header {
+  display: flex;
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+
+#cards {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  height: 40px;
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#rock,
+#paper,
+#scissors {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

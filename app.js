@@ -69,7 +69,7 @@ function playRound(playerChoice, computerChoice) {
   }
 }
 
-function game() {
+/*function game() {
   let numRounds = 1;
   let playerChoice = "";
   let computerChoice = "";
@@ -83,8 +83,11 @@ function game() {
     `Final Score:\nPlayer Wins - ${playerWins}\nComputer Wins - ${computerWins}\nTies - ${ties}`
   );
 }
+*/
 
 let ties = 0;
 let playerWins = 0;
 let computerWins = 0;
-game();
+//game();
+
+
