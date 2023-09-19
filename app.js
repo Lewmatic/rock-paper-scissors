@@ -1,36 +1,17 @@
 function getComputerChoice() {
   let rand = Math.floor(Math.random() * 3);
-  let computerChoice = "";
   if (rand == 0) {
-    computerChoice += "rock";
+    return "rock";
   } else if (rand == 1) {
-    computerChoice += "paper";
+    return "paper";
   } else if (rand == 2) {
-    computerChoice += "scissors";
+    return "scissors";
   }
-  return computerChoice;
 }
 
-function getPlayerChoice() {
-  let playerChoice = prompt('Enter "rock", "paper", or "scissors": ');
-  playerChoice = playerChoice.replace(/\s/g, "");
-  playerChoice = playerChoice.toLowerCase();
+function playRound() {
+  let computerChoice = getComputerChoice();
 
-  while (
-    playerChoice != "rock" &&
-    playerChoice != "paper" &&
-    playerChoice != "scissors"
-  ) {
-    playerChoice = prompt(
-      'Invalid selection. Please enter either "rock", "paper", or "scissors": '
-    );
-    playerChoice = playerChoice.replace(/\s/g, "");
-    playerChoice = playerChoice.toLowerCase();
-  }
-  return playerChoice;
-}
-
-function playRound(playerChoice, computerChoice) {
   if (playerChoice == computerChoice) {
     console.log(
       `You chose ${playerChoice}\nComputer chose ${computerChoice}\nYou Tied`
@@ -69,25 +50,37 @@ function playRound(playerChoice, computerChoice) {
   }
 }
 
-/*function game() {
-  let numRounds = 1;
-  let playerChoice = "";
-  let computerChoice = "";
-  while (numRounds <= 5) {
-    playerChoice = getPlayerChoice();
-    computerChoice = getComputerChoice();
-    playRound(playerChoice, computerChoice);
-    numRounds++;
-  }
-  console.log(
-    `Final Score:\nPlayer Wins - ${playerWins}\nComputer Wins - ${computerWins}\nTies - ${ties}`
-  );
-}
-*/
-
+let playerChoice = "";
 let ties = 0;
 let playerWins = 0;
 let computerWins = 0;
-//game();
+let numRounds = 0;
 
+const buttons = document.querySelectorAll("#cards button");
+buttons.forEach((button) =>
+  button.addEventListener("click", () => {
+    numRounds++;
+    console.log(numRounds);
+    button.classList.add("playing");
+    button.addEventListener("transitionend", function (e) {
+      if (e.propertyName !== "transform") return;
+      this.classList.remove("playing");
+    });
+  })
+);
 
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+rock.addEventListener("click", () => {
+  playerChoice = "rock";
+  playRound();
+});
+paper.addEventListener("click", () => {
+  playerChoice = "paper";
+  playRound();
+});
+scissors.addEventListener("click", () => {
+  playerChoice = "scissors";
+  playRound();
+});

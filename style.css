@@ -8,6 +8,7 @@ body {
 #header {
   display: flex;
   text-align: center;
+  border-radius: 5px;
   background-color: black;
   color: white;
   height: 100px;
@@ -31,6 +32,7 @@ button {
   height: 40px;
   font-size: large;
   font-family: "Courier New", Courier, monospace;
+  transition: all 0.07s ease;
 }
 
 #rock,
@@ -39,4 +41,9 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: white;
 }
